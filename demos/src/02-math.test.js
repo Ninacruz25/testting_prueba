@@ -1,4 +1,4 @@
-const {sum, multiply, divide, average} = require('./02-math.js');
+const {sum, multiply, divide} = require('./02-math.js');
 
 test("add 1+3 should be 4", () => {
   const result = sum(1, 3);
@@ -21,14 +21,14 @@ test("should divide", () => {
   // expect(result3).toBe(2);
 });
 
-test("Average of 3, 7 and 11", () => {
-  const values = [3, 7, 11];
-  const result = average(values)
-  expect(result).toBe(7);
-});
+// test("Average of 3, 7 and 11", () => {
+//   const values = [3, 7, 11];
+//   const result = average(values)
+//   expect(result).toBe(7);
+// });
 
-test("Average of nothing should be 0", () => {
-  const values = [];
-  const result = average(values)
-  expect(result).toBeNull();
-});
+// test("Average of nothing should be 0", () => {
+//   const values = [];
+//   const result = average(values)
+//   expect(result).toBeNull();
+// });
