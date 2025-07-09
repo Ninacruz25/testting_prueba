@@ -1,12 +1,6 @@
 /* Nuestro objeto de pruebas */
-const { Collection } = require('mongodb');
+// const { Collection } = require('mongodb');
 const BooksService = require('./books.service');
-
-// suplantando la clase MongoLib
-const MongoLibStub = {
-  getAll: () => [...fakeBooks],
-  create: (collection, newBook) => Promise.resolve({ ...newBook, _id: '2' }), 
-};
 
 const fakeBooks = [
   {
@@ -14,6 +8,14 @@ const fakeBooks = [
     title: 'Harry Potter',
   }
 ];
+
+// suplantando la clase MongoLib
+const MongoLibStub = {
+  getAll: () => [...fakeBooks],
+  create: (collection, newBook) => Promise.resolve({ ...newBook, _id: '2' }), 
+};
+
+
 
 // llamando a mock
 jest.mock('../lib/mongo.lib', () => jest.fn().mockImplementation(() => MongoLibStub));
@@ -33,7 +35,7 @@ describe('Test for BooksService', () => {
       /* Arrange: preparar el entorno */
       /* Act: Acción a probar */
       const books = await service.getBooks({});
-      console.log(books);
+      // console.log(books);
       /* Assert: Confirmar */
       expect(books.length).toEqual(1);
     });
@@ -51,10 +53,9 @@ describe('Test for BooksService', () => {
       };
       /* Act: Acción a probar */
       const create = await service.createBook(newBook);
-        console.log(newBook);
+        // console.log(newBook);
       /* Assert: Confirmar */
       expect(create).toMatchObject(newBook);
     });
   });
- 
 });
