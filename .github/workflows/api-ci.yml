@@ -29,5 +29,5 @@ jobs:
         shell: bash
         run: npm ci
 
-      - name: Run unit tests
+      - name: run unit tests
         run: npm
